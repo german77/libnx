@@ -256,6 +256,17 @@ Result hidsysAcquireCaptureButtonEventHandle(Event* out_event, bool autoclear);
 Result hidsysActivateCaptureButton(void);
 
 /**
+ * @brief Applies npad system common policy.
+ */
+Result hidsysApplyNpadSystemCommonPolicy(void);
+
+/**
+ * @brief Gets the npad id type of the last controller that was active.
+ * @param[out] out of \ref HidNpadIdType.
+ */
+Result hidsysGetLastActiveNpad(u32 *npad_id_type);
+
+/**
  * @brief Gets the SupportedNpadStyleSet for the CallerApplet. applet must be initialized in order to use this (uses \ref appletGetAppletResourceUserIdOfCallerApplet).
  * @note Only available on [6.0.0+].
  * @param[out] out Bitmask of \ref HidNpadStyleTag.
@@ -412,6 +423,13 @@ Result hidsysEnableUsbFullKeyController(bool flag);
  * @param[out] out Output flag.
  */
 Result hidsysIsUsbConnected(HidsysUniquePadId unique_pad_id, bool *out);
+
+/**
+ * @brief GetTouchScreenDefaultConfiguration
+ * @note Only available on [9.0.0+].
+ * @param[out] touch_screen_configuration \ref HidTouchScreenConfigurationForNx.
+ */
+Result hidsysGetTouchScreenDefaultConfiguration(HidTouchScreenConfigurationForNx *touch_screen_configuration);
 
 /**
  * @brief IsFirmwareUpdateNeededForNotification
